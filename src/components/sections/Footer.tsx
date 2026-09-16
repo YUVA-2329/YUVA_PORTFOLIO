@@ -32,7 +32,7 @@ export function Footer() {
             ].map(([name, note]) => (
               <a
                 key={name}
-                href="#"
+                href="#projects"
                 className="group flex flex-col gap-1"
               >
                 <span className="font-sans text-[13px] font-medium text-foreground transition-colors group-hover:text-accent">

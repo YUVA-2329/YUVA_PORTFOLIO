@@ -9,49 +9,55 @@ const projects = [
     id: "01",
     name: "SYNERGY AI",
     subtitle: "THE INTELLIGENCE LAYER",
-    description: "AI-powered startup intelligence and analysis.",
-    tags: ["AI", "Market analysis", "Startup intelligence", "TAM / SAM / SOM"],
-    github: "https://github.com/YUVA-2329",
+    description: "AI-powered startup intelligence and analysis platform.",
+    tags: ["AI", "Next.js", "Startup intelligence"],
+    github: "https://github.com/YUVA-2329/synergy-ai",
+    demo: "https://synergy-ai-weld.vercel.app"
   },
   {
     id: "02",
-    name: "HACKER HOUSE / POW",
-    subtitle: "WORK. VERIFIED BY MACHINES.",
-    description: "AI × crypto marketplace concept.",
-    tags: ["Bounties", "GitHub submissions", "AI requirement verification"],
-    github: "https://github.com/YUVA-2329",
+    name: "UNDERGROUNDZ",
+    subtitle: "STREETWEAR MARKETPLACE",
+    description: "A premium streetwear marketplace platform.",
+    tags: ["E-commerce", "React", "Next.js", "Tailwind"],
+    github: "https://github.com/YUVA-2329/UNDERGROUNDZ",
+    demo: "https://undergroundz.vercel.app"
   },
   {
     id: "03",
-    name: "CASE//ZERO",
-    subtitle: "EVERY CLUE CHANGES THE STORY.",
-    description: "Interactive crime-investigation experience.",
-    tags: ["Evidence", "Timeline", "CCTV", "Maps", "Interrogation"],
-    github: "https://github.com/YUVA-2329",
+    name: "INDUMIND AI",
+    subtitle: "AI ASSISTANT",
+    description: "Intelligent chatbot and AI assistant for productivity.",
+    tags: ["AI", "NLP", "React", "Next.js"],
+    github: "https://github.com/YUVA-2329/INDUMINDAI",
+    demo: "https://indumindai.vercel.app"
   },
   {
     id: "04",
-    name: "SMART CITY",
-    subtitle: "A CITY THAT CAN FEEL.",
-    description: "My IoT / smart-city work.",
-    tags: ["ESP32", "Sensors", "Ultrasonic", "Air quality", "Temperature"],
-    github: "https://github.com/YUVA-2329",
+    name: "SPARK PRO",
+    subtitle: "DIGITAL AGENCY",
+    description: "Professional digital agency and services platform.",
+    tags: ["Agency", "Portfolio", "Next.js", "Animations"],
+    github: "https://github.com/YUVA-2329/SPARK-PRO",
+    demo: "https://spark-pro-five.vercel.app"
   },
   {
     id: "05",
-    name: "BUYWISE AI",
-    subtitle: "SHOPPING, WITH A SECOND BRAIN.",
-    description: "AI-powered product intelligence concept.",
-    tags: ["AI", "Product comparison", "Recommendations", "Consumer decision"],
-    github: "https://github.com/YUVA-2329",
+    name: "CAFE VANTARA",
+    subtitle: "RESTAURANT EXPERIENCE",
+    description: "A modern digital ordering and presentation platform for cafes.",
+    tags: ["UI/UX", "Restaurant", "React", "Next.js"],
+    github: "https://github.com/YUVA-2329/cafevantara",
+    demo: "https://cafevantara.vercel.app"
   },
   {
     id: "06",
-    name: "FACE AI",
-    subtitle: "BIOMETRIC RECOGNITION.",
-    description: "Advanced face recognition and tracking system.",
-    tags: ["Computer Vision", "OpenCV", "Python", "Biometrics", "Security"],
-    github: "https://github.com/YUVA-2329",
+    name: "IRON MAN",
+    subtitle: "3D PORTFOLIO EXPERIMENT",
+    description: "An interactive 3D WebGL experience featuring Iron Man.",
+    tags: ["Three.js", "WebGL", "React Three Fiber", "3D"],
+    github: "https://github.com/YUVA-2329/iron-man",
+    demo: "https://iron-man-jet.vercel.app"
   }
 ];
 
@@ -87,7 +93,7 @@ export function ProjectsArchive() {
                     {p.description}
                   </p>
                   
-                  <div className="mt-8 flex gap-6 font-mono text-xs font-bold uppercase tracking-widest text-zinc-300">
+                  <div className="mt-8 flex flex-wrap gap-4 font-mono text-xs font-bold uppercase tracking-widest text-zinc-300">
                     <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors bg-white/5 px-5 py-3 rounded-full border border-white/10">
                       GITHUB REPO <ArrowUpRight size={16} weight="bold" />
                     </a>
@@ -95,10 +101,20 @@ export function ProjectsArchive() {
                 </div>
               </AnimatedItem>
               <AnimatedItem>
-                <div className="card-surface h-full min-h-[300px] w-full p-8 transition-colors duration-500 group-hover:border-white/10 md:min-h-[450px] flex flex-col justify-end relative overflow-hidden">
-                  <div className="relative z-10 flex flex-wrap gap-2">
+                <div className="card-surface h-full min-h-[300px] w-full p-8 transition-colors duration-500 group-hover:border-white/10 md:min-h-[450px] flex flex-col justify-end relative overflow-hidden group/iframe">
+                  {p.demo && (
+                    <a href={p.demo} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-0 block cursor-pointer">
+                      <iframe 
+                        src={p.demo} 
+                        className="w-full h-full object-cover opacity-60 group-hover/iframe:opacity-100 transition-opacity duration-700 pointer-events-none"
+                        title={`${p.name} preview`}
+                        loading="lazy"
+                      />
+                    </a>
+                  )}
+                  <div className="relative z-10 flex flex-wrap gap-2 mt-auto">
                     {p.tags.map((t) => (
-                      <span key={t} className="inline-block border border-white/5 bg-white/5 px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-zinc-400">
+                      <span key={t} className="inline-block border border-white/5 bg-white/5 backdrop-blur-md px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-zinc-300">
                         {t}
                       </span>
                     ))}
