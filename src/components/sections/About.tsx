@@ -2,35 +2,42 @@
 
 import { EyebrowBadge } from "@/components/ui/EyebrowBadge";
 import { AnimatedItem, AnimatedSection } from "@/components/ui/AnimatedSection";
+import DepthText from "@/components/ui/DepthText";
 
 export function About() {
   return (
     <section
       id="about"
-      className="relative border-t border-white/5 bg-background px-6 pb-28 pt-24 md:px-10 md:pb-40 md:pt-32"
+      className="relative border-t border-white/5 bg-transparent px-6 md:px-10 min-h-screen w-full flex flex-col justify-center items-center overflow-hidden py-24"
     >
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-16 md:gap-20">
-        <AnimatedSection className="flex flex-col gap-8">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center justify-center text-center gap-12 md:gap-16">
+        <AnimatedSection className="flex flex-col items-center gap-8">
           <AnimatedItem>
             <EyebrowBadge>01</EyebrowBadge>
           </AnimatedItem>
           <AnimatedItem>
-            <h2 className="font-sans text-5xl font-semibold leading-[0.98] tracking-tighter text-foreground md:text-7xl lg:text-8xl">
-              WHO&apos;S BEHIND<br />
-              <span className="text-accent">THE CODE?</span>
-            </h2>
+            <div className="py-4 flex justify-center w-full">
+              <DepthText 
+                text="ABOUT ME" 
+                faceColor="var(--foreground)" 
+                depthColor="var(--accent)" 
+                fontSize="clamp(3.5rem, 8vw, 6rem)" 
+                tilt={5} 
+                layers={15} 
+              />
+            </div>
           </AnimatedItem>
           <AnimatedItem>
-            <p className="max-w-[48ch] font-sans text-base leading-relaxed text-zinc-400 md:text-xl">
-              <span className="text-foreground">YUVA KISHORE</span><br />
-              Second-year Computer Science student at REVA University.<br />
-              <br />
-              I work across:<br />
-              <span className="text-zinc-300">C++ &middot; Java &middot; Python &middot; JavaScript &middot; TypeScript &middot; AI &middot; Data Structures & Algorithms &middot; Full-Stack Development &middot; React &middot; Next.js &middot; Node.js &middot; Databases &middot; Three.js &middot; GSAP &middot; Git & GitHub</span><br />
-              <br />
-              My focus is not just learning individual technologies.<br />
-              I am learning how they connect to create complete products.
-            </p>
+            <div className="max-w-[60ch] mt-4 mx-auto flex flex-col items-center">
+              <h3 className="font-mono text-lg md:text-xl font-bold text-accent mb-8 uppercase tracking-[0.2em] shadow-accent/20 text-center">
+                Code. Create. Experiment. Repeat.
+              </h3>
+              <p className="font-sans text-xl leading-[1.7] text-zinc-400 md:text-3xl font-light tracking-tight text-center">
+                I’m a CSE student exploring the space between <span className="text-foreground font-medium">logic and imagination</span> — building with <span className="text-foreground font-medium">C, Java, DSA, AI and modern web technologies</span>.
+                <br /><br />
+                I learn by building, grow by breaking things, and keep pushing until an idea becomes <span className="text-foreground font-medium relative inline-block">something real.<span className="absolute -bottom-1 left-0 w-full h-[2px] bg-accent/40 blur-[1px]"></span></span>
+              </p>
+            </div>
           </AnimatedItem>
         </AnimatedSection>
       </div>

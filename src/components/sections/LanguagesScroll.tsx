@@ -1,121 +1,146 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code, BracketsCurly, TreeStructure } from "@phosphor-icons/react";
+import { Code, BracketsCurly, TreeStructure } from "@phosphor-icons/react";
 import { EyebrowBadge } from "@/components/ui/EyebrowBadge";
 import DepthText from "@/components/ui/DepthText";
+import { AnimatedItem, AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const languages = [
   {
     id: "java",
     name: "JAVA",
     icon: <Code size={20} weight="duotone" className="text-accent" />,
-    range: [0, 0.33],
-    project: {
-      name: "SYSTEMS ARCHITECTURE",
-      desc: "Robust backend services and object-oriented design patterns implemented in Java.",
-      github: "https://github.com/YUVA-2329"
-    }
+    subtitle: "Object-Oriented Programming · Problem Solving · Core Java",
+    concepts: [
+      "OOP",
+      "Classes & Objects",
+      "Inheritance",
+      "Polymorphism",
+      "Exception Handling",
+      "Collections",
+      "Problem Solving"
+    ]
   },
   {
     id: "c",
     name: "C",
     icon: <BracketsCurly size={20} weight="duotone" className="text-accent" />,
-    range: [0.33, 0.66],
-    project: {
-      name: "MEMORY & SYSTEMS",
-      desc: "Low-level system programming and direct hardware manipulation in C.",
-      github: "https://github.com/YUVA-2329"
-    }
+    subtitle: "Programming Foundations · Memory · Systems Thinking",
+    concepts: [
+      "Pointers",
+      "Arrays",
+      "Structures",
+      "Dynamic Memory",
+      "File Handling",
+      "Algorithms",
+      "Problem Solving"
+    ]
   },
   {
     id: "dsa",
     name: "DSA",
     icon: <TreeStructure size={20} weight="duotone" className="text-accent" />,
-    range: [0.66, 1],
-    project: {
-      name: "LOGIC & OPTIMIZATION",
-      desc: "Advanced data structures, graphs, and algorithmic problem solving.",
-      github: "https://github.com/YUVA-2329"
-    }
+    subtitle: "Data Structures & Algorithms",
+    concepts: [
+      "Arrays",
+      "Strings",
+      "Linked Lists",
+      "Stacks",
+      "Queues",
+      "Searching",
+      "Sorting",
+      "Algorithmic Problem Solving"
+    ]
   }
 ];
 
-function LanguageItem({ lang }: { lang: any }) {
+type LanguageProps = {
+  id: string;
+  name: string;
+  icon: React.ReactNode;
+  subtitle: string;
+  concepts: string[];
+};
+
+function LanguageItem({ lang, index }: { lang: LanguageProps; index: number }) {
   return (
-    <section className="h-screen w-full flex flex-col-reverse md:flex-row items-center justify-center gap-12 px-6 md:px-24 relative overflow-hidden">
-      
-      {/* Glowing Division Bar Effect (React Bits inspired) */}
-      <motion.div 
-        initial={{ scaleX: 0, opacity: 0 }}
-        whileInView={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent shadow-[0_0_15px_rgba(212,162,47,0.8)]"
-      />
+    <motion.div
+      initial={{ opacity: 0, y: 150, scale: 0.7 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 80, 
+        damping: 15, 
+        mass: 1.2,
+        delay: index * 0.15
+      }}
+      className="flex flex-col items-center justify-start gap-8 w-full group relative"
+    >
+      <div className="flex flex-col items-center text-center mt-4">
+        <div className="flex items-center gap-3 mb-4">
+          {lang.icon}
+          <span className="font-mono text-sm uppercase tracking-widest text-zinc-400">
+            CORE EXPERTISE
+          </span>
+        </div>
+        <DepthText 
+          text={lang.name} 
+          faceColor="var(--foreground)" 
+          depthColor="var(--accent)" 
+          fontSize="clamp(3rem, 5vw, 4.5rem)" 
+          tilt={5} 
+          layers={12} 
+        />
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 150, scale: 0.7 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ 
-          type: "spring", 
-          stiffness: 80, 
-          damping: 15, 
-          mass: 1.2,
-        }}
-        className="flex w-full h-full flex-col-reverse md:flex-row items-center justify-center gap-12"
-      >
-        {/* Left Side: Related Project Box */}
-        <div className="w-full md:w-1/2 flex justify-center md:justify-end z-10">
-          <div className="card-surface p-8 max-w-sm w-full relative group transition-all duration-500 hover:border-accent hover:shadow-[0_0_30px_rgba(212,162,47,0.2)] bg-black/60 backdrop-blur-2xl border border-white/20">
-            <EyebrowBadge>RELATED PROJECT</EyebrowBadge>
-            <h3 className="font-sans text-2xl font-bold uppercase tracking-tight text-white mt-6 mb-2">
-              {lang.project.name}
-            </h3>
-            <p className="font-sans text-zinc-300 text-sm mb-8 font-medium leading-relaxed">
-              {lang.project.desc}
-            </p>
-            <a 
-              href={lang.project.github} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-accent hover:text-white transition-colors bg-white/5 px-4 py-2 rounded-full border border-white/10"
+      <div className="card-surface p-6 w-full relative transition-all duration-500 hover:border-accent hover:shadow-[0_0_30px_rgba(212,162,47,0.2)] bg-black/60 backdrop-blur-2xl border border-white/20 flex-grow flex flex-col items-center text-center mt-4">
+        <EyebrowBadge>FOUNDATION</EyebrowBadge>
+        
+        <h3 className="font-sans text-lg font-bold tracking-tight text-white mt-6 mb-6 leading-snug">
+          {lang.subtitle}
+        </h3>
+        
+        <div className="flex flex-wrap justify-center gap-2 relative z-10">
+          {lang.concepts.map((concept: string) => (
+            <span 
+              key={concept} 
+              className="inline-block border border-white/10 bg-white/5 backdrop-blur-md px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-zinc-300 transition-colors hover:text-white hover:bg-white/10"
             >
-              VIEW REPO <ArrowUpRight size={14} weight="bold" />
-            </a>
-            
-            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-          </div>
-        </div>
-
-        {/* Right Side: Language Title */}
-        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="flex items-center gap-3 mb-4">
-            {lang.icon}
-            <span className="font-mono text-sm uppercase tracking-widest text-zinc-400">
-              CORE EXPERTISE
+              {concept}
             </span>
-          </div>
-          <DepthText 
-            text={lang.name} 
-            faceColor="#ffffff" 
-            depthColor="#d4a22f" 
-            fontSize="clamp(4rem, 10vw, 8rem)" 
-            tilt={5} 
-            layers={15} 
-          />
+          ))}
         </div>
-      </motion.div>
-    </section>
+        
+        <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+      </div>
+    </motion.div>
   );
 }
 
 export function LanguagesScroll() {
   return (
-    <div className="relative w-full bg-transparent text-foreground flex flex-col items-center">
-      {languages.map((lang) => (
-        <LanguageItem key={lang.id} lang={lang} />
-      ))}
-    </div>
+    <section className="relative w-full bg-transparent text-foreground flex flex-col items-center py-24 md:py-32 px-6 md:px-10 overflow-hidden">
+      <div className="mx-auto w-full max-w-[1400px]">
+        <AnimatedSection className="mb-20 flex flex-col gap-6">
+          <AnimatedItem>
+            <EyebrowBadge>02</EyebrowBadge>
+          </AnimatedItem>
+          <AnimatedItem>
+            <h2 className="font-sans text-4xl font-semibold leading-[0.98] tracking-tighter text-foreground md:text-6xl">
+              TECHNICAL<br />
+              <span className="text-accent">FOUNDATIONS.</span>
+            </h2>
+          </AnimatedItem>
+        </AnimatedSection>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 xl:gap-12 w-full">
+          {languages.map((lang, index) => (
+            <LanguageItem key={lang.id} lang={lang} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

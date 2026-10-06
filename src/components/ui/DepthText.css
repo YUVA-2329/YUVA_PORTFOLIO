@@ -30,6 +30,7 @@
   font-kerning: normal;
   text-rendering: geometricPrecision;
   font-family: var(--font-sans);
+  transition: color 0.8s ease, text-shadow 0.8s ease;
 }
 
 .depth-text__layer {

@@ -9,6 +9,97 @@
   --card-bg: rgba(24, 24, 27, 0.55);
   --card-border: rgba(255, 255, 255, 0.08);
   --hud-line: rgba(255, 255, 255, 0.1);
+  --theme-transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+.light-theme {
+  --background: #f9fafb;
+  --foreground: #09090b;
+  --muted: #71717a;
+  --accent: #d4a22f;
+  --accent-soft: rgba(212, 162, 47, 0.15);
+  --card-bg: rgba(255, 255, 255, 0.4);
+  --card-border: rgba(255, 255, 255, 0.6);
+  --hud-line: rgba(0, 0, 0, 0.08);
+  --color-zinc-300: #71717a;
+  --color-zinc-400: #52525b;
+  --color-zinc-500: #3f3f46;
+  --color-zinc-600: #27272a;
+  --color-white: #09090b;
+  --color-black: #ffffff;
+}
+
+@keyframes liquidPan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.light-theme .card-surface {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.7) 100%);
+  background-size: 200% 200%;
+  border-top: 1px solid rgba(255, 255, 255, 1);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(60px) saturate(250%) brightness(105%);
+  -webkit-backdrop-filter: blur(60px) saturate(250%) brightness(105%);
+  box-shadow: 
+    0 40px 80px -15px rgba(0, 0, 0, 0.08),
+    inset 0 0 40px rgba(255, 255, 255, 0.8),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.light-theme .card-surface:hover {
+  transform: translateY(-12px) scale(1.04) perspective(1000px) rotateX(2deg);
+  animation: liquidPan 3s ease infinite;
+  box-shadow: 
+    0 50px 100px -20px rgba(0, 0, 0, 0.15),
+    0 0 50px rgba(212, 162, 47, 0.25),
+    inset 0 0 80px rgba(255, 255, 255, 1),
+    inset 0 0 30px rgba(212, 162, 47, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(212, 162, 47, 0.15) 50%, rgba(255, 255, 255, 0.9) 100%);
+  background-size: 200% 200%;
+  border-top: 1px solid rgba(212, 162, 47, 1);
+  border-left: 1px solid rgba(212, 162, 47, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  z-index: 50;
+}
+
+.light-theme canvas {
+  filter: invert(1);
+  opacity: 0.5;
+}
+
+@keyframes liquidGoldText {
+  0%, 100% { filter: drop-shadow(0 10px 20px rgba(212, 162, 47, 0.1)); }
+  50% { filter: drop-shadow(0 20px 40px rgba(212, 162, 47, 0.5)); }
+}
+
+.light-theme .depth-text {
+  animation: liquidGoldText 4s ease infinite;
+}
+
+.light-theme header {
+  backdrop-filter: blur(40px) saturate(250%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.1) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%) !important;
+}
+
+.light-theme a.border {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.light-theme a.border:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 30px -10px rgba(212, 162, 47, 0.4), inset 0 0 15px rgba(255, 255, 255, 1) !important;
+  border-color: rgba(212, 162, 47, 0.8) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(212, 162, 47, 0.2) 100%) !important;
+  color: #000 !important;
 }
 
 @theme inline {
@@ -28,6 +119,7 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: var(--theme-transition);
 }
 
 body {
@@ -43,6 +135,7 @@ body {
   box-shadow:
     0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
     0 20px 40px -20px rgba(0, 0, 0, 0.6);
+  transition: var(--theme-transition), border-color 0.8s ease;
 }
 
 .scroll-animation {
@@ -79,4 +172,9 @@ body {
   opacity: 0.035;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.light-theme .grain::after {
+  opacity: 0.08;
+  mix-blend-mode: multiply;
 }

@@ -5,15 +5,16 @@ import type { ReactNode } from "react";
 
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 150, scale: 0.7 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 100, damping: 20 },
+    scale: 1,
+    transition: { type: "spring", stiffness: 80, damping: 15, mass: 1.2 },
   },
 };
 
