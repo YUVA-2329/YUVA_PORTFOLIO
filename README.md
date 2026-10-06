@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yuva Kishore - Portfolio
 
-## Getting Started
+A cinematic, modern, and highly interactive digital portfolio built to showcase real-world projects, live demos, and a comprehensive view of my development capabilities.
 
-First, run the development server:
+## ?? Features
+- **Cinematic Design**: Custom animations and fluid transitions using Framer Motion and GSAP.
+- **Live Project Integration**: Real, embedded interactive previews of live projects.
+- **Fully Responsive**: Optimized for desktop, tablet, and mobile viewing.
+- **Built in Public**: Transparency into experiments, labs, and active GitHub repositories.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ?? Technologies
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion, GSAP, React Three Fiber (3D Elements)
+- **Deployment**: Vercel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ?? Installation & Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**:
+   git clone https://github.com/YUVA-2329/YUVA_PORTFOLIO.git
+   cd YUVA_PORTFOLIO
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**:
+   npm install
 
-## Learn More
+3. **Run the development server**:
+   npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+## ?? Project Integration System
+The portfolio dynamically links and embeds working demos from my GitHub repositories. 
+Current Featured Projects:
+1. **SYNERGY AI**: AI-powered startup intelligence (https://synergy-ai-weld.vercel.app)
+2. **UNDERGROUNDZ**: Premium streetwear marketplace (https://undergroundz.vercel.app)
+3. **INDUMIND AI**: AI assistant and chatbot (https://indumindai.vercel.app)
+4. **SPARK PRO**: Digital agency portfolio (https://spark-pro-five.vercel.app)
+5. **CAFE VANTARA**: Restaurant digital experience (https://cafevantara.vercel.app)
+6. **IRON MAN**: 3D interactive WebGL experiment (https://iron-man-jet.vercel.app)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ?? Author
+**Yuva Kishore**
+- GitHub: @YUVA-2329
+- LinkedIn: /in/yuva-kishore

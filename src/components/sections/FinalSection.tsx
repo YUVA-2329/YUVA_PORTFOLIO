@@ -44,14 +44,24 @@ export function FinalSection() {
                 <ArrowUpRight size={18} weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
             </AnimatedItem>
-            {["LINKEDIN", "EMAIL", "RESUME"].map((link) => (
-              <AnimatedItem key={link}>
-                <a href="#" className="group flex items-center gap-2 font-sans text-xl font-medium text-foreground hover:text-accent transition-colors">
-                  {link}
-                  <ArrowUpRight size={18} weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </a>
-              </AnimatedItem>
-            ))}
+            <AnimatedItem>
+              <a href="https://linkedin.com/in/yuva-kishore" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 font-sans text-xl font-medium text-foreground hover:text-accent transition-colors">
+                LINKEDIN
+                <ArrowUpRight size={18} weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </a>
+            </AnimatedItem>
+            <AnimatedItem>
+              <a href="mailto:yuvakishore@example.com" className="group flex items-center gap-2 font-sans text-xl font-medium text-foreground hover:text-accent transition-colors">
+                EMAIL
+                <ArrowUpRight size={18} weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </a>
+            </AnimatedItem>
+            <AnimatedItem>
+              <a href="/Yuva_Kishore_Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 font-sans text-xl font-medium text-foreground hover:text-accent transition-colors">
+                RESUME
+                <ArrowUpRight size={18} weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </a>
+            </AnimatedItem>
           </AnimatedSection>
         </div>
 

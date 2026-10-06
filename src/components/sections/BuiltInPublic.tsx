@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowUpRight } from "@phosphor-icons/react";
 import { EyebrowBadge } from "@/components/ui/EyebrowBadge";
 import { AnimatedItem, AnimatedSection } from "@/components/ui/AnimatedSection";
 import { MagicBento, BentoItem } from "@/components/ui/MagicBento";
