@@ -159,19 +159,19 @@ export function BootScreen() {
              transition={{ delay: 1.4, duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
              className="relative flex flex-col items-center text-center overflow-hidden mix-blend-screen"
           >
-             <h1 className="text-[12rem] md:text-[18rem] lg:text-[24rem] font-sans font-black tracking-[-0.06em] leading-[0.8] text-white select-none">
+             <h1 className="text-7xl md:text-9xl lg:text-[12rem] font-sans font-bold leading-[0.8] text-white select-none flex items-baseline">
                 <motion.span
                   className="block relative"
-                  initial={{ opacity: 0, y: 60, filter: "blur(40px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: 1.4, duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, y: 40, filter: "blur(20px)", letterSpacing: "0.2em" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)", letterSpacing: "-0.04em" }}
+                  transition={{ delay: 1.4, duration: 2, ease: [0.16, 1, 0.3, 1] }}
                 >
                   HELLO
                   {/* Chromatic Edge Effect */}
                   <motion.span 
                     initial={{ opacity: 0, x: -3 }}
-                    animate={{ opacity: [0, 0.6, 0], x: 0 }}
-                    transition={{ delay: 2.1, duration: 0.5 }}
+                    animate={{ opacity: [0, 0.5, 0], x: 0 }}
+                    transition={{ delay: 2.1, duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 text-red-500 mix-blend-screen blur-[1px] pointer-events-none"
                     aria-hidden="true"
                   >
@@ -179,8 +179,8 @@ export function BootScreen() {
                   </motion.span>
                   <motion.span 
                     initial={{ opacity: 0, x: 3 }}
-                    animate={{ opacity: [0, 0.6, 0], x: 0 }}
-                    transition={{ delay: 2.1, duration: 0.5 }}
+                    animate={{ opacity: [0, 0.5, 0], x: 0 }}
+                    transition={{ delay: 2.1, duration: 0.6, ease: "easeInOut" }}
                     className="absolute inset-0 text-blue-500 mix-blend-screen blur-[1px] pointer-events-none"
                     aria-hidden="true"
                   >
@@ -198,10 +198,10 @@ export function BootScreen() {
 
                 {/* The Period — punchy, delayed, gold */}
                 <motion.span
-                  className="block text-accent leading-none"
-                  initial={{ opacity: 0, x: -40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 2.6, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="block text-accent leading-none ml-2"
+                  initial={{ opacity: 0, x: -20, scale: 0 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  transition={{ delay: 2.6, duration: 0.6, type: "spring", stiffness: 200, damping: 10 }}
                   style={{ fontSize: "0.9em" }}
                 >
                   .
