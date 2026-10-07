@@ -159,46 +159,53 @@ export function BootScreen() {
              transition={{ delay: 1.4, duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
              className="relative flex flex-col items-center text-center overflow-hidden mix-blend-screen"
           >
-             <h1 className="text-5xl md:text-7xl lg:text-[9rem] font-sans font-bold tracking-tighter leading-[0.85] text-transparent bg-clip-text bg-white">
-                <span className="block text-zinc-500 opacity-70 tracking-widest text-lg md:text-3xl lg:text-4xl mb-4 font-mono">
-                  <motion.span
-                    initial={{ letterSpacing: "1em", opacity: 0 }}
-                    animate={{ letterSpacing: "0.2em", opacity: 1 }}
-                    transition={{ delay: 1.7, duration: 1.5, ease: "easeOut" }}
-                  >
-                    WELCOME TO
-                  </motion.span>
-                </span>
-                <span className="block relative">
-                  MY WORLD
-                  {/* Chromatic Edge Effect (Micro optical distortion) */}
+             <h1 className="text-[12rem] md:text-[18rem] lg:text-[24rem] font-sans font-black tracking-[-0.06em] leading-[0.8] text-white select-none">
+                <motion.span
+                  className="block relative"
+                  initial={{ opacity: 0, y: 60, filter: "blur(40px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ delay: 1.4, duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  HELLO
+                  {/* Chromatic Edge Effect */}
                   <motion.span 
-                    initial={{ opacity: 0, x: -2 }}
-                    animate={{ opacity: [0, 0.5, 0], x: 0 }}
+                    initial={{ opacity: 0, x: -3 }}
+                    animate={{ opacity: [0, 0.6, 0], x: 0 }}
                     transition={{ delay: 2.1, duration: 0.5 }}
                     className="absolute inset-0 text-red-500 mix-blend-screen blur-[1px] pointer-events-none"
                     aria-hidden="true"
                   >
-                    MY WORLD
+                    HELLO
                   </motion.span>
                   <motion.span 
-                    initial={{ opacity: 0, x: 2 }}
-                    animate={{ opacity: [0, 0.5, 0], x: 0 }}
+                    initial={{ opacity: 0, x: 3 }}
+                    animate={{ opacity: [0, 0.6, 0], x: 0 }}
                     transition={{ delay: 2.1, duration: 0.5 }}
                     className="absolute inset-0 text-blue-500 mix-blend-screen blur-[1px] pointer-events-none"
                     aria-hidden="true"
                   >
-                    MY WORLD
+                    HELLO
                   </motion.span>
 
-                  {/* LIGHT SWEEP (2.30s) */}
+                  {/* LIGHT SWEEP */}
                   <motion.div
                     initial={{ left: "-150%" }}
                     animate={{ left: "200%" }}
                     transition={{ delay: 2.3, duration: 1.2, ease: "easeInOut" }}
                     className="absolute inset-0 z-20 w-1/4 bg-gradient-to-r from-transparent via-white to-transparent skew-x-[-30deg] mix-blend-overlay opacity-90 pointer-events-none"
                   />
-                </span>
+                </motion.span>
+
+                {/* The Period — punchy, delayed, gold */}
+                <motion.span
+                  className="block text-accent leading-none"
+                  initial={{ opacity: 0, x: -40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2.6, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ fontSize: "0.9em" }}
+                >
+                  .
+                </motion.span>
              </h1>
           </motion.div>
         </motion.div>
